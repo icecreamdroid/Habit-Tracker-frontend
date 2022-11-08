@@ -1,0 +1,13 @@
+@import '../Variables.scss';
+
+div.container{
+    background-color: ($welcomeColor);
+    div.form-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button.button{
+            @include buttonStyle($primaryColor);
+        }
+    }
+}

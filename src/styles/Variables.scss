@@ -1,0 +1,24 @@
+$welcomeColor: rgb(55, 194, 67);
+$white: rgb(248, 248, 248);
+$blackBorder: 1px solid black;
+$primaryColor:rgb(155, 16, 16);
+$secondaryColor:rgb(43, 105, 43);
+
+
+
+
+
+@mixin buttonStyle($color) {
+  height: 50px;
+  border-radius: 8px;
+  font-size: 20px;
+  width: 200px;
+  background: $color;
+  color: $white;
+  border: $blackBorder;
+}
+
+@mixin backGround($color){
+  background: linear-gradient($color,rgb(56, 241, 0));
+  height: 100vh;
+}

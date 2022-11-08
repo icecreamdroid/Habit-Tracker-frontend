@@ -1,0 +1,35 @@
+@import "./Variables.scss";
+
+div.container {
+  @include backGround($welcomeColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 10px;
+  div.title {
+    font-size: 70px;
+    color: $white;
+    text-align: center;
+    width: min-content;
+  }
+  div.button-row {
+    display: flex;
+    justify-content: space-around;
+    div.button-container {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      button.button {
+        &.register {
+          @include buttonStyle($primaryColor);
+        }
+        &.sign-in {
+          @include buttonStyle($secondaryColor);
+        }
+      }
+    }
+  }
+}
