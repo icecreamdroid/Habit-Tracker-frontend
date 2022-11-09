@@ -1,8 +1,8 @@
 import React from "react";
-import axios from "axios";
 import { Button, TextField } from "@mui/material";
+import Inputfield from "./Inputfield";
 import { Navigate } from "react-router-dom";
-import {client} from "../helpers/axiosConfig";
+import { client } from "../helpers/axiosConfig";
 
 class SignIn extends React.Component {
   constructor() {
@@ -17,13 +17,10 @@ class SignIn extends React.Component {
     // var _this = this;
     e.preventDefault();
     try {
-      const data = await client.post(
-        "/api/v1/users/login",
-        {
-          contact_number: this.state.contact_number,
-          password: this.state.password,
-        }
-      );
+      const data = await client.post("/api/v1/users/login", {
+        contact_number: this.state.contact_number,
+        password: this.state.password,
+      });
       if (data.status == 200) {
         console.log(data.data.data.token);
         localStorage.setItem("token", data.data.data.token);
@@ -45,21 +42,20 @@ class SignIn extends React.Component {
       <div className="container">
         <div className="form-container">
           <form action="" onSubmit={this.handleSubmit}>
-            <TextField
-              variant="filled"
+            <Inputfield
+              text="Contact Number"
               name="contact_number"
-              onChange={this.handleContact}
-              type="text"
+              handleChange={this.handleContact}
             />
-            <label htmlFor="contact_number">Contact Number</label>
-            <TextField
-              variant="filled"
+            <Inputfield
+              text="Password"
               name="password"
+              handleChange={this.handlePassword}
               type="password"
-              onChange={this.handlePassword}
             />
-            <label htmlFor="password">Password</label>
-            <Button type="submit">Log in</Button>
+            <Button variant="contained" color="success" type="submit">
+              Log in
+            </Button>
           </form>
           {this.state.redirect == true && <Navigate to="/dashboard" />}
           {this.state.redirect == false && <div>Wrong password brotha</div>}
