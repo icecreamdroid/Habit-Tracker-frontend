@@ -41,6 +41,7 @@ class Register extends React.Component {
       const data = await client.post("/api/v1/users/signup", {
         name: this.state.name,
         contact_number: this.state.contact_number,
+        email:this.state.email,
         password: this.state.password,
         passwordConfirm: this.state.passwordConfirm,
       });

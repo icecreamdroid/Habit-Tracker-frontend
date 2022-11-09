@@ -3,7 +3,7 @@ import React from "react";
 import { redirect, Navigate } from "react-router-dom";
 import "../styles/Dashboard.scss";
 import { Button } from "@mui/material";
-import {client} from "../helpers/axiosConfig";
+import { client } from "../helpers/axiosConfig";
 
 class Dashboard extends React.Component {
   constructor() {
@@ -74,14 +74,12 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.getUser();
   }
-
   componentDidUpdate(prevProps, prevState) {
     if (this.state.user != prevState.user) {
       this.getUserData();
     }
     // if(this.state.habits.log[0].amount)
   }
-
   render() {
     return (
       <>
