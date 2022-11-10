@@ -99,7 +99,7 @@ class Register extends React.Component {
               name="passwordConfirm"
               text="Confirm Password"
             />
-            <Button variant="contained" color="success" type="submit">Log in</Button>
+            <Button variant="contained" color="success" type="submit">Register</Button>
           </form>
           {this.state.redirect === true && <Navigate to="/dashboard" />}
           {this.state.redirect === false && <div>Wrong password brotha</div>}

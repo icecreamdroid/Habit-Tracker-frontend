@@ -16,10 +16,7 @@ class Dashboard extends React.Component {
   }
   getUser() {
     client
-      .get("/api/v1/users", {
-        params: {
-          contact_number: 9990601403,
-        },
+      .get("/api/v1/users", {        
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
