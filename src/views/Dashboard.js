@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
         "/api/v1/habits/update",
         {
           habit_id: this.state.habits._id,
-          amount: this.state.habits.log[0].amount + 1,
+          amount: this.state.habits.log[this.state.habits.log.length-1].amount + 1,
         },
         {
           headers: {
@@ -89,7 +89,7 @@ class Dashboard extends React.Component {
           {this.state.habits && (
             <>
               <h1>{this.state.habits.name.toUpperCase()}</h1>
-              <div className="large">{this.state.habits.log[0].amount}</div>
+              <div className="large">{this.state.habits.log[this.state.habits.log.length-1].amount}</div>
               <Button
                 onClick={this.handleAdd}
                 size="large"
