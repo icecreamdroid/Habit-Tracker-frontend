@@ -4,6 +4,7 @@ import { redirect, Navigate } from "react-router-dom";
 import "../styles/Dashboard.scss";
 import { Button } from "@mui/material";
 import { client } from "../helpers/axiosConfig";
+import Chart from "../components/Chart";
 
 class Dashboard extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ class Dashboard extends React.Component {
   }
   getUser() {
     client
-      .get("/api/v1/users", {        
+      .get("/api/v1/users", {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
@@ -52,7 +53,8 @@ class Dashboard extends React.Component {
         "/api/v1/habits/update",
         {
           habit_id: this.state.habits._id,
-          amount: this.state.habits.log[this.state.habits.log.length-1].amount + 1,
+          amount:
+            this.state.habits.log[this.state.habits.log.length - 1].amount + 1,
         },
         {
           headers: {
@@ -89,7 +91,9 @@ class Dashboard extends React.Component {
           {this.state.habits && (
             <>
               <h1>{this.state.habits.name.toUpperCase()}</h1>
-              <div className="large">{this.state.habits.log[this.state.habits.log.length-1].amount}</div>
+              <div className="large">
+                {this.state.habits.log[this.state.habits.log.length - 1].amount}
+              </div>
               <Button
                 onClick={this.handleAdd}
                 size="large"
@@ -98,6 +102,7 @@ class Dashboard extends React.Component {
               >
                 Add
               </Button>
+              <Chart log={this.state.habits.log}></Chart>
             </>
           )}
         </div>
